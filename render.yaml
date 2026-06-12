@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: bdp-cloud-mvp
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SHOW_ERROR_DETAILS
+        value: 'true'
+      - key: DATA_DIR
+        value: /data
+      - key: PLAYWRIGHT_TIMEOUT_MS
+        value: '60000'
+      - key: PLAYWRIGHT_NAVIGATION_TIMEOUT_MS
+        value: '90000'
+      - key: APP_PASSWORD
+        sync: false
+      - key: SESSION_ENCRYPTION_KEY
+        generateValue: true
+      - key: COOKIE_SECRET
+        generateValue: true
