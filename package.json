@@ -1,0 +1,21 @@
+{
+  "name": "bdp-cloud-mvp",
+  "version": "0.1.6-network-diagnostics",
+  "description": "Cloud-only web app prototype for BDP civil legal research with server-side Playwright and CIE session capture.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "NODE_ENV=development node src/server.js",
+    "check": "node --check src/server.js && node --check src/auth/flows.js && node --check src/auth/session-store.js && node --check src/bdp/client.js && node --check src/browser/playwright.js && node --check src/security/app-auth.js && node --check src/debug/network.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "playwright": "1.60.0",
+    "zod": "^3.23.8"
+  }
+}
